@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>مختارات | قريباً</title>
+<meta name="description" content="مختارات - منتجات وتوصيل. نجهّز لكم تجربة تسوّق جديدة، قريباً.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg1:#0f2f3a;      /* غيّر الألوان هون لتطابق شعارك */
+    --bg2:#16505e;
+    --accent:#ff8a3d;
+    --accent2:#ffd166;
+    --text:#ffffff;
+    --muted:#b9d3da;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{
+    font-family:'Cairo',system-ui,sans-serif;
+    color:var(--text);
+    background:radial-gradient(120% 90% at 50% 0%,var(--bg2),var(--bg1));
+    overflow:hidden;
+    min-height:100vh;
+    min-height:100dvh;
+    display:flex;align-items:center;justify-content:center;
+    text-align:center;
+  }
+  svg.i{width:100%;height:100%;fill:none;stroke:currentColor;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+
+  /* الأغراض الطايرة */
+  .float{position:absolute;opacity:.9;animation:bob var(--d,6s) ease-in-out infinite;animation-delay:var(--s,0s);will-change:transform}
+  .float .spin{width:100%;height:100%;animation:sway calc(var(--d,6s)*1.3) ease-in-out infinite;animation-delay:var(--s,0s)}
+  @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-22px)}}
+  @keyframes sway{0%,100%{transform:rotate(-10deg)}50%{transform:rotate(10deg)}}
+  .f1{width:64px;height:64px;top:8%;right:8%;color:var(--accent);--d:5s}
+  .f2{width:52px;height:52px;top:16%;left:10%;color:var(--accent2);--d:6.5s;--s:-1s}
+  .f3{width:72px;height:72px;top:44%;right:4%;color:#7fe0d0;--d:7s;--s:-2s}
+  .f4{width:56px;height:56px;top:50%;left:5%;color:#ff9fb2;--d:5.5s;--s:-3s}
+  .f5{width:44px;height:44px;top:30%;left:30%;color:var(--accent2);--d:8s;--s:-4s;opacity:.5}
+  .f6{width:48px;height:48px;top:26%;right:28%;color:#fff;--d:6s;--s:-2.5s;opacity:.45}
+
+  /* المحتوى */
+  main{position:relative;z-index:2;padding:24px;max-width:640px}
+  .brand{font-weight:900;font-size:clamp(1.1rem,4vw,1.5rem);letter-spacing:.5px;color:var(--accent2);margin-bottom:10px}
+  .brand small{display:block;font-weight:400;font-size:.8em;color:var(--muted);letter-spacing:2px;direction:ltr}
+  h1{
+    font-size:clamp(3.2rem,16vw,7rem);font-weight:900;line-height:1.1;
+    background:linear-gradient(90deg,var(--accent),var(--accent2),var(--accent));
+    background-size:200% auto;-webkit-background-clip:text;background-clip:text;color:transparent;
+    animation:shine 4s linear infinite;
+  }
+  @keyframes shine{to{background-position:200% center}}
+  .en{font-size:clamp(1.2rem,5vw,1.8rem);font-weight:700;letter-spacing:6px;text-transform:uppercase;direction:ltr;margin:4px 0 18px}
+  p.sub{color:var(--muted);font-size:clamp(1rem,3.6vw,1.2rem);line-height:1.9}
+  .dots{display:flex;gap:8px;justify-content:center;margin-top:22px}
+  .dots span{width:10px;height:10px;border-radius:50%;background:var(--accent);animation:pulse 1.2s ease-in-out infinite}
+  .dots span:nth-child(2){animation-delay:.2s}.dots span:nth-child(3){animation-delay:.4s}
+  @keyframes pulse{0%,100%{transform:scale(.6);opacity:.4}50%{transform:scale(1.2);opacity:1}}
+
+  /* الشارع والتوصيل */
+  .road{position:absolute;left:0;right:0;bottom:0;height:110px;z-index:1}
+  .road::after{content:"";position:absolute;left:0;right:0;bottom:0;height:34px;background:rgba(0,0,0,.28);
+    border-top:3px dashed rgba(255,255,255,.25)}
+  .truck{position:absolute;bottom:22px;width:110px;height:66px;color:var(--accent);animation:drive 11s linear infinite}
+  .truck .bounce{width:100%;height:100%;animation:rumble .35s ease-in-out infinite}
+  .cart{position:absolute;bottom:26px;width:78px;height:78px;color:var(--accent2);animation:roll 15s linear infinite;animation-delay:-6s}
+  .cart .bounce{width:100%;height:100%;animation:rumble .5s ease-in-out infinite}
+  @keyframes drive{from{left:-140px}to{left:calc(100% + 40px)}}
+  @keyframes roll{from{left:calc(100% + 40px)}to{left:-120px}}
+  @keyframes rumble{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+  .truck svg,.cart svg{transform:scaleX(-1)}
+  .cart svg{transform:none}
+
+  /* أغراض تسقط بالسلة */
+  .drop{position:absolute;top:-60px;width:34px;height:34px;z-index:1;animation:fall var(--d,9s) linear infinite;animation-delay:var(--s,0s);opacity:.8}
+  @keyframes fall{0%{transform:translateY(0) rotate(0)}100%{transform:translateY(110vh) rotate(360deg)}}
+
+  @media (max-width:520px){
+    .f3,.f4{width:48px;height:48px}
+    .truck{width:88px;height:54px}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{animation:none!important}
+  }
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="cart" viewBox="0 0 64 64"><path d="M5 10h9l6 29h31l6-21H17"/><circle cx="25" cy="50" r="4"/><circle cx="46" cy="50" r="4"/></symbol>
+    <symbol id="bag" viewBox="0 0 64 64"><rect x="12" y="22" width="40" height="34" rx="7"/><path d="M23 30v-9a9 9 0 0118 0v9"/></symbol>
+    <symbol id="box" viewBox="0 0 64 64"><path d="M32 7l22 11v26L32 57 10 44V18z"/><path d="M10 18l22 11 22-11M32 29v28"/></symbol>
+    <symbol id="gift" viewBox="0 0 64 64"><rect x="10" y="28" width="44" height="26" rx="3"/><rect x="7" y="19" width="50" height="10" rx="3"/><path d="M32 19v35M32 19c-9-12-19-4-12 0M32 19c9-12 19-4 12 0"/></symbol>
+    <symbol id="tag" viewBox="0 0 64 64"><path d="M7 32L32 7h25v25L32 57z"/><circle cx="45" cy="19" r="3.5"/></symbol>
+    <symbol id="truck" viewBox="0 0 64 40"><path d="M2 6h34v22H2zM36 13h13l9 9v6H36z"/><circle cx="14" cy="31" r="4.5" fill="#0f2f3a"/><circle cx="46" cy="31" r="4.5" fill="#0f2f3a"/><path d="M8 13h20M8 19h14"/></symbol>
+    <symbol id="basket" viewBox="0 0 64 64"><path d="M8 26h48l-6 26H14zM20 26l8-14M44 26l-8-14"/><path d="M24 34v12M32 34v12M40 34v12"/></symbol>
+  </defs>
+</svg>
+
+<!-- أغراض تسوق عايمة -->
+<div class="float f1"><div class="spin"><svg class="i"><use href="#cart"/></svg></div></div>
+<div class="float f2"><div class="spin"><svg class="i"><use href="#bag"/></svg></div></div>
+<div class="float f3"><div class="spin"><svg class="i"><use href="#gift"/></svg></div></div>
+<div class="float f4"><div class="spin"><svg class="i"><use href="#box"/></svg></div></div>
+<div class="float f5"><div class="spin"><svg class="i"><use href="#tag"/></svg></div></div>
+<div class="float f6"><div class="spin"><svg class="i"><use href="#basket"/></svg></div></div>
+
+<!-- أغراض صغيرة بتنزل -->
+<div class="drop" style="right:12%;--d:10s;--s:-2s;color:#ff9fb2"><svg class="i"><use href="#tag"/></svg></div>
+<div class="drop" style="right:38%;--d:13s;--s:-7s;color:#7fe0d0"><svg class="i"><use href="#bag"/></svg></div>
+<div class="drop" style="right:64%;--d:11s;--s:-4s;color:var(--accent2)"><svg class="i"><use href="#box"/></svg></div>
+<div class="drop" style="right:86%;--d:14s;--s:-9s;color:var(--accent)"><svg class="i"><use href="#gift"/></svg></div>
+
+<main>
+  <div class="brand">مختارات<small>MUKHTARAT</small></div>
+  <h1>قريباً</h1>
+  <div class="en">Coming Soon</div>
+  <p class="sub">نجهّز لكم تجربة تسوّق جديدة: منتجات مختارة بعناية، وتوصيل لحد باب بيتكم.<br>ترقّبونا.</p>
+  <div class="dots" aria-hidden="true"><span></span><span></span><span></span></div>
+</main>
+
+<!-- شارع: شاحنة توصيل وعربة تسوق -->
+<div class="road" aria-hidden="true">
+  <div class="truck"><div class="bounce"><svg class="i"><use href="#truck"/></svg></div></div>
+  <div class="cart"><div class="bounce"><svg class="i"><use href="#cart"/></svg></div></div>
+</div>
+
+</body>
+</html>
